@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Welcome
+{% endblock %}
+
+{% block content %}
+        <h1>Welcome {{myname}}</h1>
+        <p>My first web app</p>
+        <ul>
+            {% for i in x %}
+                <li>{{i}}</li>
+            {% endfor %}
+        </ul>
+{% endblock %}

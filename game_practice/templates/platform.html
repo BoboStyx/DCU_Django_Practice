@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{platform.name}}
+{% endblock %}
+        
+{% block content %}
+        <h1>{{ platform.platform }}</h1>
+        <p>{{platform.bio}}</p>
+        {% if game %}
+            <ul>
+                {% for game in game %}
+                    <li><a href="{% url 'single_game' id=game.id %}">{{game.Name}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no game to display</p>
+        {% endif %}
+{% endblock %}

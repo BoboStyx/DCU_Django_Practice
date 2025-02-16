@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Your Basket
+{% endblock %}
+
+{% block content %}
+
+{% if games %}
+<h2>Your Basket</h2>
+
+<div class="row justify-content-center">
+    {% for game in games %}
+    <p>{{ game.Name }}</p>
+    {% endfor %}
+
+{% else %}
+    <h1>No Games in Basket</h1>
+    <li><a href="{% url 'add_games' %}">Add games</a></li>
+{% endif %}
+{% endblock %}

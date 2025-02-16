@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    All game
+{% endblock %}
+        
+{% block content %}
+        {% if game %}
+            <ul>
+                {% for game in game %}
+                    <li><a href="{% url 'single_game' id=game.id %}">{{game.Name}}</a></li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>There are no game to display</p>
+        {% endif %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %} Add games {% endblock %}
+{% block content %}
+{% for game in games %}
+<p>{{ game.Name }},  Stock: {{ game.Number_In_Stock }}</p>
+{% if game.Number_In_Stock == 0 %}
+    <p>{{ game.Name}} is out of stock</p>
+{% else %}
+<form action="{% url 'add_to_basket' game.id %}" method="POST">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-primary">
+        Add to Basket
+    </button>
+</form>
+{% endif %}
+{% endfor %}
+{% endblock %}

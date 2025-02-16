@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    All game
+{% endblock %}
+        
+{% block content %}
+            <h1>{{game.Name}}</h1>
+            <p>{{game.Description}}</p>
+            {% if game.Game_Platform.all %}
+                {% for platform in game.Game_Platform.all %}
+                    <a href="{% url 'by_platform' id=platform.id %}">{{ platform.platform }}</a>
+                {% endfor %}
+            {% endif %}
+
+
+{% endblock %}
