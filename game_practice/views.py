@@ -88,10 +88,7 @@ def add_to_basket(request, game_id):
         game.Number_In_Stock -= 1
         game.save()
 
-        messages.success(request, f"{game.Name} has been added to your basket!")
         return redirect('basket')
-    else:
-        messages.error(request, f"{game.Name} is out of stock!")
     return redirect('add_games')
 
 
